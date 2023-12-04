@@ -23,7 +23,7 @@ namespace LibraryManagementSys
                 this.employeeId = EmployeeIdGenerator();
                 this.name = librarianName;
                 this.position = position;
-                this.hireDate = hireDate;
+                this.hireDate = DateTime.Now;
                 this.location = library;
             }
 
@@ -138,6 +138,8 @@ namespace LibraryManagementSys
                 return random.Next(000000, 999999);
 
             }
+
+            //Calculate 
 
         }
 
