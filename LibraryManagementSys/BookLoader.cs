@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryManagementSys.LibraryDatabaseDataSetTableAdapters;
 
 namespace LibraryManagementSys
 {
@@ -30,6 +31,19 @@ namespace LibraryManagementSys
 
             return tblBook;
 
+        }
+
+        //Load bookTransactions
+        public DataTable LoadBookTransactions()
+        {
+            myConnection.Open();
+            string transactionReader = "SELECT * FROM tblBookTransactions;";
+            DataSet dataSet = new DataSet("BookTransactions");
+            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(transactionReader, myConnection);
+            dataAdapter.Fill(dataSet, "BookTransactions");
+            DataTable tblBookTransactions = dataSet.Tables["BookTransactions"];
+            
+            return tblBookTransactions;
         }
 
 
