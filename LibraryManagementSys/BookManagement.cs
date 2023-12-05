@@ -73,6 +73,19 @@ namespace LibraryManagementSys
 
         }
 
+        //Add Transaction to book transaction list 
+        public void AddTransaction(Transaction transaction, Book book)
+        {
+            int transId = transaction.transaction;
+            int bookId = book.bookIdNum; 
+
+            myConnection.Open();
+            string insertSQL = $"INSERT INTO tblBookTransactions " +
+                $"(BookId, TransactionId) VALUES ({bookId},{transId});";
+            OleDbCommand insertCommand = new OleDbCommand(insertSQL) ;
+            insertCommand.ExecuteNonQuery() ;
+            myConnection.Close();
+        }
 
     }
 }

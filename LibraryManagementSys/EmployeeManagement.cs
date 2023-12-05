@@ -17,18 +17,52 @@ namespace LibraryManagementSys
         //Add an employee 
         public void AddEmployee(Librarian employee)
         {
-           
 
+            int id = employee.EmployeeID;
+            string name = employee.Name;
+            string position = employee.Position;
+            DateTime tenure = employee.HireDate;
+            string location = employee.Library;
 
+            myConnection.Open();
+
+            string addSQL = $"INSERT INTO tblEmployee (EmployeeID, EmployeeName, Position, Tenure, Location, HireDate) " +
+                $"VALUES ({id},'{name}','{position}','{tenure}','{location}');";
+            OleDbCommand addCommand = new OleDbCommand(addSQL);
+            addCommand.ExecuteNonQuery();
+
+            myConnection.Close();
+
+        }
+        public void RemoveEmployee(Librarian employee)
+        {
+            int id = employee.EmployeeID;
+
+            myConnection.Open();
+            string removeSQL = $"DELETE FROM tblEmployee WHERE EmployeeID = {id}";
+            OleDbCommand removeCommand = new OleDbCommand(removeSQL);
+            removeCommand.ExecuteNonQuery();
+            myConnection.Close();
 
         }
 
-        //Delete an employee 
-
-
         //Modify an employee 
+        public void UpdateEmployee(Librarian employee)
+        {
+            int id = employee.EmployeeID;
+            string name = employee.Name;
+            string position = employee.Position;
+            DateTime tenure = employee.HireDate;
+            string location = employee.Library;
 
+            myConnection.Open();
+            string modifySQL = $"UPDATE tblEmployee " +
+                $"SET EmployeeID = {id}, EmployeeName = '{name}', Position = '{position}', Tenure = '{tenure}', Location = '{location}'" +
+                $"WHERE EmployeeID = {id};";
+            OleDbCommand modifyCommand = new OleDbCommand(modifySQL);
+            modifyCommand.ExecuteNonQuery();
+            myConnection.Close();
 
-
+        }
     }
 }

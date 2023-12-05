@@ -20,49 +20,49 @@ namespace LibraryManagementSys
         private double fine; 
 
         //Getters and Setters 
-        double transactionFine
+        public double transactionFine
         {
             get { return fine; }
             set { fine = value; }
         }
 
-        int transaction
+        public int transaction
         {
             get { return transactionId; }
             
         }
 
-        int member
+        public int member
         {
             get { return memberId; }
             set { memberId = value; }
         }
 
-        int employee
+        public int employee
         {
             get { return employeeId; }
             set { employeeId = value; }
         }
 
-        DateTime checkOut
+        public DateTime checkOut
         {
             get { return checkOutDate; }
             set { checkOutDate = value; }
         }
 
-        DateTime due
+        public DateTime due
         {
             get { return dueDate; }
             set { dueDate = value; }
         }
 
-        DateTime returnedDate
+        public DateTime returnedDate
         {
             get { return returned; }
             set { returnedDate = value; }
         }
 
-        bool transactionStatus
+        public bool transactionStatus
         {
             get { return transactionClosed; }
             set { transactionClosed = value; }
